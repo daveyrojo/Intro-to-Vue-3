@@ -8,7 +8,7 @@ const app = Vue.createApp({
             details: ['50% cotton', '30% wool', '20% polyester'],
             variants: [
               { id: 2234, color: 'green', image: './assets/images/socks_green.jpg', quantity: 80 },
-              { id: 2235, color: 'blue', image: './assets/images/socks_blue.jpg', quantity: 0 },
+              { id: 2235, color: 'blue', image: './assets/images/socks_blue.jpg', quantity: 15 },
             ]
         }
     },
@@ -33,6 +33,10 @@ const app = Vue.createApp({
         onSale() {
             if (this.variants[this.selectedVariant].quantity > 75) {
                 return `${this.title} are on Sale!`;
+            } else if (this.variants[this.selectedVariant].quantity < 20 && this.variants[this.selectedVariant].quantity > 10) {
+                return `These are going fast!`
+            } else {
+                return `Check back soon!!`
             }
         }
     }
